@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>OAuth2 Callback</title></head>
+<body>
+<script>
+  const p = new URLSearchParams(window.location.search);
+  const code = p.get('code');
+  const error = p.get('error');
+  if (code) {
+    document.write('<h2>Auth code captured</h2><pre id="code">' + code + '</pre>');
+  } else if (error) {
+    document.write('<h2>Error: ' + error + '</h2><pre>' + p.get('error_description') + '</pre>');
+  } else {
+    document.write('<h2>No code in callback</h2><pre>' + window.location.search + '</pre>');
+  }
+</script>
+</body>
+</html>
